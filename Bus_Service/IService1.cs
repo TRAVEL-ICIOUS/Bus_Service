@@ -21,14 +21,13 @@ namespace Bus_Service
 
         string InsertRouteInfo(Insert_RouteInfo R);
 
-        [OperationContract]
+       // [OperationContract]
 
-       // string InsertScheduleInfo(Insert_ScheduleInfo S);
+        // string InsertScheduleInfo(Insert_ScheduleInfo S);
 
 
 
     }
-
 
     
 

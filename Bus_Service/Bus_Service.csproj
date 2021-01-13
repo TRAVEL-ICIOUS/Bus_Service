@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Insert_BusInfo.cs" />
+    <Compile Include="Classes\Insert_CustomerRegistration.cs" />
     <Compile Include="Classes\Insert_RouteInfo.cs" />
     <Compile Include="Classes\Insert_ScheduleInfo.cs" />
     <Compile Include="Classes\ProjectDBCls.cs" />
