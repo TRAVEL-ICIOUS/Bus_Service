@@ -73,12 +73,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AdminInfo.cs" />
     <Compile Include="Classes\Insert_Availseats.cs" />
     <Compile Include="Classes\Insert_BusInfo.cs" />
     <Compile Include="Classes\Insert_CustomerRegistration.cs" />
     <Compile Include="Classes\Insert_RouteInfo.cs" />
     <Compile Include="Classes\Insert_ScheduleInfo.cs" />
     <Compile Include="Classes\ProjectDBCls.cs" />
+    <Compile Include="Classes\Ticket.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
