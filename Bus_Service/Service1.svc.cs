@@ -77,6 +77,7 @@ namespace Bus_Service
                 ProjectDBCls P = new ProjectDBCls();
                 P.Insert_ScheduleInfos.Add(S);
                 P.SaveChanges();
+                //gfh
                 return "1 row inserted";
             }
             catch (DbUpdateException Ex)
