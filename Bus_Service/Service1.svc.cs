@@ -70,6 +70,33 @@ namespace Bus_Service
 
         }
 
+        public List<Insert_ScheduleInfo> GetScheduleid()
+        {
+            using (ProjectDBCls P = new ProjectDBCls())
+            {
+                return P.Insert_ScheduleInfos.ToList();
+            }
+
+
+        }
+
+          public   string InsertSeatsAvailInfo(Insert_availseats A)
+        {
+            try
+            {
+                ProjectDBCls P = new ProjectDBCls();
+                P.Insert_Availseats.Add(A);
+                P.SaveChanges();
+                //gfh
+                return "1 row inserted";
+            }
+            catch (DbUpdateException Ex)
+            {
+                SqlException sql = (SqlException)Ex.GetBaseException();//user friendly error include 
+                return sql.Message;
+            }
+        }
+
         public string InsertScheduleInfo(Insert_ScheduleInfo S)
         {
             try
@@ -87,6 +114,21 @@ namespace Bus_Service
             }
         }
 
+        //public string InsertSeatsAvailInfo(Insert_availseats A)
+        //{
+        //    try
+        //    {
+        //        ProjectDBCls P = new ProjectDBCls();
+        //        P.Insert_Availseats.Add(A);
+        //        P.SaveChanges();
+        //        return "1 row inserted";
+        //    }
+        //    catch (DbUpdateException Ex)
+        //    {
+        //        SqlException sql = (SqlException)Ex.GetBaseException();//user friendly error include 
+        //        return sql.Message;
+        //    }
+        //}
 
 
 

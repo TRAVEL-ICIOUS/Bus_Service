@@ -34,6 +34,16 @@ namespace Bus_Service
         [OperationContract]
         string InsertScheduleInfo(Insert_ScheduleInfo S);
 
+        [OperationContract]
+
+        // string InsertScheduleInfo(Insert_ScheduleInfo S
+        List<Insert_ScheduleInfo> GetScheduleid();
+
+        [OperationContract]
+
+        string InsertSeatsAvailInfo(Insert_availseats A);
+
+
 
 
 

@@ -19,6 +19,8 @@ namespace Bus_Service.Classes
         public DbSet<Insert_RouteInfo> Insert_RouteInfos { get; set; }
         public DbSet<Insert_ScheduleInfo> Insert_ScheduleInfos { get; set; }
 
+        public DbSet<Insert_availseats> Insert_Availseats { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

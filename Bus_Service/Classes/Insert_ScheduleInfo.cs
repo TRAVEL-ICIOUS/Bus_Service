@@ -34,8 +34,10 @@ namespace Bus_Service.Classes
         public Insert_RouteInfo Insert_RouteInfo { get; set; }
 
         [DataMember]
-
-        public DateTime DepartureTime { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString ="{0:hh\\:mm}")]
+       
+        public TimeSpan DepartureTime { get; set; }
 
         
 
