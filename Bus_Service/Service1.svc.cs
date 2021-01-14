@@ -49,14 +49,32 @@ namespace Bus_Service
         }
 
 
+
+        public List<Insert_BusInfo> GetBusid()
+        {
+            using (ProjectDBCls P=new ProjectDBCls())
+            {
+                return P.Insert_BusInfos.ToList();
+            }
+
+
+        }
+
+        public List<Insert_RouteInfo> GetRouteid()
+        {
+            using (ProjectDBCls P = new ProjectDBCls())
+            {
+                return P.Insert_RouteInfos.ToList();
+            }
+
+
+        }
+
         public string InsertScheduleInfo(Insert_ScheduleInfo S)
         {
             try
             {
-                
                 ProjectDBCls P = new ProjectDBCls();
-
-                
                 P.Insert_ScheduleInfos.Add(S);
                 P.SaveChanges();
                 return "1 row inserted";
@@ -69,7 +87,9 @@ namespace Bus_Service
         }
 
 
-        
+
+
+
 
     }
 }

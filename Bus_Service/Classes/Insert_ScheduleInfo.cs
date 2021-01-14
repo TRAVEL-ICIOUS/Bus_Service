@@ -20,14 +20,14 @@ namespace Bus_Service.Classes
 
         [DataMember]
          
-        public int Busid { get; set; }
+        public string Busid { get; set; }
 
         [ForeignKey("Busid")]
         public Insert_BusInfo Insert_BusInfo { get; set; }
 
         [DataMember]
 
-        public int Routeid { get; set; }
+        public string Routeid { get; set; }
 
         [ForeignKey("Routeid")]
 

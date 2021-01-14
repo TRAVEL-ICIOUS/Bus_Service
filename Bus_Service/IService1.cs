@@ -19,11 +19,24 @@ namespace Bus_Service
 
         [OperationContract]
 
-        string InsertRouteInfo(Insert_RouteInfo R);
+       string InsertRouteInfo(Insert_RouteInfo R);
 
         [OperationContract]
 
-       // string InsertScheduleInfo(Insert_ScheduleInfo S);
+        // string InsertScheduleInfo(Insert_ScheduleInfo S
+        List<Insert_BusInfo> GetBusid();
+
+        [OperationContract]
+
+        // string InsertScheduleInfo(Insert_ScheduleInfo S
+        List<Insert_RouteInfo> GetRouteid();
+
+        [OperationContract]
+        string InsertScheduleInfo(Insert_ScheduleInfo S);
+
+
+
+
 
 
 
