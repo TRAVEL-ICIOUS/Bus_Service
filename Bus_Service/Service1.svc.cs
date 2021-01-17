@@ -70,17 +70,28 @@ namespace Bus_Service
 
         }
 
-        public List<Insert_ScheduleInfo> GetScheduleid()
+        public List<Insert_ScheduleInfo> GetScheduleId()
         {
             using (ProjectDBCls P = new ProjectDBCls())
             {
-                return P.Insert_ScheduleInfos.ToList();
+                List<Insert_ScheduleInfo> L = P.Insert_ScheduleInfos.ToList();
+                return L;
             }
 
 
         }
 
-          public   string InsertSeatsAvailInfo(Insert_availseats A)
+        //public List<Insert_ScheduleInfo> GetScheduleid()
+        //{
+        //    using (ProjectDBCls P = new ProjectDBCls())
+        //    {
+        //        return P.Insert_ScheduleInfos.ToList();
+        //    }
+
+
+        //}
+
+        public   string InsertSeatsAvailInfo(Insert_availseats A)
         {
             try
             {
@@ -144,11 +155,11 @@ namespace Bus_Service
 
         }
 
-        public List<CS> GetState()
+        public List<CS> GetState(string Country)
         {
             using (ProjectDBCls P = new ProjectDBCls())
             {
-                return P.CSs.ToList();
+                return P.CSs.Where(x=>x.CountryName.Equals(Country)).ToList();
             }
 
 

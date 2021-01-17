@@ -26,9 +26,6 @@ namespace Bus_Service.Classes
         
         public DbSet<CustomerRegistration> CustomerRegistrations { get; set; }
 
-
-
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

@@ -8,7 +8,8 @@ using System.Web;
 
 namespace Bus_Service.Classes
 {
-    [DataContract]
+    [DataContract(IsReference = true)]
+
     [Table("tblScheduleInfo")]
     public class Insert_ScheduleInfo
     {
@@ -43,6 +44,7 @@ namespace Bus_Service.Classes
 
         public int RouteCost { get; set; }
 
+        public virtual IEnumerable<Insert_availseats> Insert_Availseats { get; set; }
 
 
     }

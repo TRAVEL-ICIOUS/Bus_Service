@@ -36,8 +36,14 @@ namespace Bus_Service
 
         [OperationContract]
 
-        // string InsertScheduleInfo(Insert_ScheduleInfo S
-        List<Insert_ScheduleInfo> GetScheduleid();
+        List<Insert_ScheduleInfo> GetScheduleId();
+
+       // [OperationContract]
+
+
+
+        //// string InsertScheduleInfo(Insert_ScheduleInfo S
+        //List<Insert_ScheduleInfo> GetScheduleid();
 
         [OperationContract]
 
@@ -53,7 +59,7 @@ namespace Bus_Service
 
         [OperationContract]
 
-        List<CS> GetState();
+        List<CS> GetState(string Country);
 
         [OperationContract]
 
@@ -65,9 +71,9 @@ namespace Bus_Service
         string InsertCustomer(CustomerRegistration Cr);
 
 
-        [OperationContract]
+        //[OperationContract]
 
-        string search(CustomerRegistration cr1);
+        //string search(CustomerRegistration cr1);
 
         // [OperationContract]
         // List<CustomerRegistration> getcustomerId();
