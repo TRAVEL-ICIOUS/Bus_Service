@@ -43,6 +43,39 @@ namespace Bus_Service
 
         string InsertSeatsAvailInfo(Insert_availseats A);
 
+        [OperationContract]
+
+        string InsertCS(CS Co);
+
+        [OperationContract]
+
+        List<CS> GetCountry();
+
+        [OperationContract]
+
+        List<CS> GetState();
+
+        [OperationContract]
+
+        List<CustomerRegistration> Getmobileno();
+
+
+        [OperationContract]
+
+        string InsertCustomer(CustomerRegistration Cr);
+
+
+        [OperationContract]
+
+        string search(CustomerRegistration cr1);
+
+        // [OperationContract]
+        // List<CustomerRegistration> getcustomerId();
+
+
+
+
+
 
 
 

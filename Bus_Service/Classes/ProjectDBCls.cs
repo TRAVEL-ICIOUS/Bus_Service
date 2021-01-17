@@ -21,6 +21,13 @@ namespace Bus_Service.Classes
 
         public DbSet<Insert_availseats> Insert_Availseats { get; set; }
 
+        public DbSet<CS>CSs{ get; set; }
+
+        
+        public DbSet<CustomerRegistration> CustomerRegistrations { get; set; }
+
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

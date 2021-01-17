@@ -9,24 +9,24 @@ using System.Web;
 namespace Bus_Service.Classes
 {
     [DataContract]
-    [Table("tblRouteInfo")]
-    public class Insert_RouteInfo
+    [Table("tblcountry")]
+    public class CS
     {
-        [DataMember]
         [Key]
-
-        public string RouteID { get; set; }
-
         [DataMember]
-        public string RouteFrom { get; set; }
+        public int ID { get; set; }
 
         [DataMember]
 
-        public string RouteTo { get; set; }
+        public string CountryName { get; set; } //kl 10'o clock meeting 
 
-       
-        public virtual IEnumerable<Insert_ScheduleInfo> Insert_ScheduleInfo { get; set; }
+        [DataMember]
 
+        public string StateName { get; set; }
+
+       // public virtual ICollection<CustomerRegistration> CustomerRegistration { get; set; }
+
+        
 
 
     }

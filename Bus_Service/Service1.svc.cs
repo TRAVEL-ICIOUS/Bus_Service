@@ -114,24 +114,142 @@ namespace Bus_Service
             }
         }
 
-        //public string InsertSeatsAvailInfo(Insert_availseats A)
+      public string InsertCS(CS Co)
+        {
+            try
+            {
+                ProjectDBCls P = new ProjectDBCls();
+                P.CSs.Add(Co);
+                P.SaveChanges();
+                //gfh
+                return "1 row inserted";
+            }
+            catch (DbUpdateException Ex)
+            {
+                SqlException sql = (SqlException)Ex.GetBaseException();//user friendly error include 
+                return sql.Message;
+            }
+        }
+
+      
+
+        public List<CS> GetCountry()
+        {
+            using (ProjectDBCls P = new ProjectDBCls())
+            {
+                //P.CustomerRegistrations.ToList();
+                return P.CSs.ToList();
+            }
+
+
+        }
+
+        public List<CS> GetState()
+        {
+            using (ProjectDBCls P = new ProjectDBCls())
+            {
+                return P.CSs.ToList();
+            }
+
+
+        }
+
+        public List<CustomerRegistration> Getmobileno()
+        {
+            using (ProjectDBCls P = new ProjectDBCls())
+            {
+                return P.CustomerRegistrations.ToList();
+            }
+
+        }
+
+        public string InsertCustomer(CustomerRegistration Cr)
+        {
+            try
+            {
+                ProjectDBCls P = new ProjectDBCls();
+                Cr.CustomerId = getcustomerId();
+               
+                P.CustomerRegistrations.Add(Cr);
+                P.SaveChanges();
+                //gfh
+                return "1 row inserted";
+            }
+
+            catch (DbUpdateException Ex)
+            {
+                SqlException sql = (SqlException)Ex.GetBaseException();//user friendly error include 
+                return sql.Message;
+            }
+        }
+        //public string InsertCustomer()
         //{
-        //    try
-        //    {
-        //        ProjectDBCls P = new ProjectDBCls();
-        //        P.Insert_Availseats.Add(A);
-        //        P.SaveChanges();
-        //        return "1 row inserted";
-        //    }
-        //    catch (DbUpdateException Ex)
-        //    {
-        //        SqlException sql = (SqlException)Ex.GetBaseException();//user friendly error include 
-        //        return sql.Message;
-        //    }
+        //    ProjectDBCls P = new ProjectDBCls();
+        //    P.CustomerRegistrations.ToList();
+        //    return "abc";
         //}
 
 
+       //public string search(CustomerRegistration cr1)
+       // {
+       //     {
+       //      try
+       //         {
+       //             var E = (from  in cr1
 
+       //                      where L == user && L.Password == pass
+
+       //                      select L).FirstOrDefault();
+       //             return E;
+       //         }
+       //        catch (DbUpdateException E)
+       //         {
+       //             SqlException ex = E.GetBaseException() as SqlException;
+       //         }
+
+       //         return null;
+       //     }
+       // }
+
+        public int getcustomerId()
+        {
+            DateTime currentDate = DateTime.Now;
+            string year = currentDate.Year.ToString();
+            
+            string month = currentDate.Month.ToString();
+            if (Convert.ToInt32(month) < 10)
+            {
+                month = "0"+ month ;
+            }
+            Random rnd = new Random();
+            string rndNo = rnd.Next(1111, 9999).ToString();
+
+            return Convert.ToInt32(year + month + rndNo);
+        }
+
+        public int getticketId()
+        {
+            //ADD BUS ID***********************************************
+            DateTime currentDate = DateTime.Now;
+
+            string date = currentDate.Date.ToString();
+            if (Convert.ToInt32(date) < 10)
+            {
+                date = "0" + date;
+            }
+
+            string year = currentDate.Year.ToString("yy");
+
+            string month = currentDate.Month.ToString();
+            if (Convert.ToInt32(month) < 10)
+            {
+                month = "0" + month;
+            }
+            Random rnd = new Random();
+            string rndNo = rnd.Next(1111, 9999).ToString();
+
+            return Convert.ToInt32(year + month + rndNo);
+        }
 
 
     }

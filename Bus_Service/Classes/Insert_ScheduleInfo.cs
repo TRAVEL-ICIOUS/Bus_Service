@@ -23,7 +23,7 @@ namespace Bus_Service.Classes
         public string Busid { get; set; }
 
         [ForeignKey("Busid")]
-        public Insert_BusInfo Insert_BusInfo { get; set; }
+        public virtual Insert_BusInfo Insert_BusInfo { get; set; }
 
         [DataMember]
 
@@ -31,7 +31,7 @@ namespace Bus_Service.Classes
 
         [ForeignKey("Routeid")]
 
-        public Insert_RouteInfo Insert_RouteInfo { get; set; }
+        public virtual Insert_RouteInfo Insert_RouteInfo { get; set; }
 
         [DataMember]
         [DataType(DataType.Time)]
@@ -39,7 +39,11 @@ namespace Bus_Service.Classes
        
         public TimeSpan DepartureTime { get; set; }
 
-        
+        [DataMember]
+
+        public int RouteCost { get; set; }
+
+
 
     }
 }
