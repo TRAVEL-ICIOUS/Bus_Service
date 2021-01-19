@@ -34,7 +34,7 @@ namespace Bus_Service.Classes
 
         [DataMember]
 
-        public int MobileNo { get; set; }
+        public long MobileNo { get; set; }
 
         [DataMember]
         public string Email { get; set; }

@@ -71,8 +71,9 @@ namespace Bus_Service
 
         string InsertCustomer(CustomerRegistration Cr);
 
+        [OperationContract]
+        CustomerRegistration Userlogin(long Username, string Password);
 
-        //[OperationContract]
 
         //string search(CustomerRegistration cr1);
 
@@ -93,7 +94,7 @@ namespace Bus_Service
     }
 
 
-    
 
-    
+
+
 }

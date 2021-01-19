@@ -15,6 +15,7 @@ namespace Bus_Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+        ProjectDBCls P = new ProjectDBCls();
        public string InsertBusInfo(Insert_BusInfo B)
         {
             try
@@ -209,13 +210,24 @@ namespace Bus_Service
                 return sql.Message;
             }
         }
-        //public string InsertCustomer()
-        //{
-        //    ProjectDBCls P = new ProjectDBCls();
-        //    P.CustomerRegistrations.ToList();
-        //    return "abc";
-        //}
-
+       
+        public  CustomerRegistration Userlogin(long Username,string Password)
+        {
+            try
+            {
+                var E = (from L in P.CustomerRegistrations
+                         where L.MobileNo == Username && L.Password == Password
+                         select L).FirstOrDefault();
+                return E;
+            }
+            catch (DbUpdateException E)
+            {
+                SqlException ex = (SqlException)E.GetBaseException();
+                //return ex.Message;
+            }
+            return null;
+           
+        }
 
        //public string search(CustomerRegistration cr1)
        // {
