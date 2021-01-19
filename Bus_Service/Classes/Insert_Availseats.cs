@@ -9,48 +9,42 @@ using System.Web;
 
 namespace Bus_Service.Classes
 {
-    [DataContract]
-    [Table("tblseatsvail")]
-    public class Insert_availseats
-    {
-        [Key]
-        [DataMember]
-        public int AID { get; set; }
-        [DataMember]
+        [DataContract]
+        [Table("tblseatsvail")]
+        public class Insert_availseats
+        {
+            [Key]
+            [DataMember]
+            public int AID { get; set; }
+            [DataMember]
+
+
+            public int ScheduleID { get; set; }
+            [ForeignKey("ScheduleID")]
+           public Insert_ScheduleInfo Insert_ScheduleInfo { get; set; }
+            [DataMember]
+            [DisplayName("Start Date")]
+            [DataType(DataType.Date, ErrorMessage = "Date not valid.")]
+            [DisplayFormat(DataFormatString = "{0:dd\\-mm\\-yyyy}", ApplyFormatInEditMode = true)]
+            //[DataType(DataType.Date)]
+            public DateTime? DoJ { get; set; }
 
 
 
-        public string ScheduleID { get; set; }
+            [DataMember]
 
 
 
-        [ForeignKey("ScheduleID")]
-        public Insert_ScheduleInfo Insert_ScheduleInfo { get; set; }
-        [DataMember]
-        [DisplayName("Start Date")]
-        [DataType(DataType.Date, ErrorMessage = "Date not valid.")]
-        [DisplayFormat(DataFormatString = "{0:dd\\-mm\\-yyyy}", ApplyFormatInEditMode = true)]
-        //[DataType(DataType.Date)]
-        public DateTime? DoJ { get; set; }
+            public int GeneralSeats { get; set; }
 
 
 
-        [DataMember]
+            [DataMember]
 
 
 
-        public int GeneralSeats { get; set; }
+            public int AvailableSeats { get; set; }
 
 
-
-        [DataMember]
-
-
-
-        public int AvailableSeats { get; set; }
-
-
-
-
+        }
     }
-}

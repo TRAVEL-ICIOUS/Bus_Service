@@ -72,10 +72,19 @@ namespace Bus_Service
 
         public List<Insert_ScheduleInfo> GetScheduleId()
         {
-            using (ProjectDBCls P = new ProjectDBCls())
+            try
             {
-                List<Insert_ScheduleInfo> L = P.Insert_ScheduleInfos.ToList();
-                return L;
+                using (ProjectDBCls P = new ProjectDBCls())
+                {
+                    List<Insert_ScheduleInfo> L = P.Insert_ScheduleInfos.ToList();
+                    return L;
+                }
+            }
+            catch (DbUpdateException E)
+            {
+                SqlException S = (SqlException)E.GetBaseException();
+                string St = S.Message;
+                return null;
             }
 
 
@@ -144,23 +153,30 @@ namespace Bus_Service
 
       
 
-        public List<CS> GetCountry()
+        public List<string> GetCountry()
         {
             using (ProjectDBCls P = new ProjectDBCls())
             {
                 //P.CustomerRegistrations.ToList();
-                return P.CSs.ToList();
+                return P.CSs.Select(x=>x.CountryName).Distinct().ToList();
             }
 
 
         }
 
-        public List<CS> GetState(string Country)
+        public List<string> GetState(string Country)
         {
-            using (ProjectDBCls P = new ProjectDBCls())
-            {
-                return P.CSs.Where(x=>x.CountryName.Equals(Country)).ToList();
-            }
+            
+             ProjectDBCls P = new ProjectDBCls();
+
+            
+                P.Configuration.ProxyCreationEnabled = false;
+            var S = from S1 in P.CSs
+                    where S1.CountryName.Equals(Country)
+                    select S1.StateName;
+            List<string> L = S.ToList();
+            return L;
+            
 
 
         }
@@ -262,6 +278,14 @@ namespace Bus_Service
             return Convert.ToInt32(year + month + rndNo);
         }
 
+        public List<int> getSecId()
+        {
+            ProjectDBCls P = new ProjectDBCls();
+            var s = from S1 in P.Insert_ScheduleInfos
+                    select S1.ScheduleID;
+            return s.ToList();
+            
 
+        }
     }
 }

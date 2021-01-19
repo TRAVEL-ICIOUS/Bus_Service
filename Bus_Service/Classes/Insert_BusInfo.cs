@@ -15,7 +15,7 @@ namespace Bus_Service.Classes
         [DataMember]
         [Key]
 
-        public string BusID { get; set; }
+        public int BusID { get; set; }
 
         [DataMember]
 

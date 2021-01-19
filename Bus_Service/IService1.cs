@@ -38,9 +38,10 @@ namespace Bus_Service
 
         List<Insert_ScheduleInfo> GetScheduleId();
 
-       // [OperationContract]
+        // [OperationContract]
 
-
+        [OperationContract]
+        List<int> getSecId();
 
         //// string InsertScheduleInfo(Insert_ScheduleInfo S
         //List<Insert_ScheduleInfo> GetScheduleid();
@@ -55,11 +56,11 @@ namespace Bus_Service
 
         [OperationContract]
 
-        List<CS> GetCountry();
+        List<string> GetCountry();
 
         [OperationContract]
 
-        List<CS> GetState(string Country);
+        List<string> GetState(string Country);
 
         [OperationContract]
 

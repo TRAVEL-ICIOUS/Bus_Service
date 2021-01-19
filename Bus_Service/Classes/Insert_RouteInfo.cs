@@ -15,7 +15,7 @@ namespace Bus_Service.Classes
         [DataMember]
         [Key]
 
-        public string RouteID { get; set; }
+        public int RouteID { get; set; }
 
         [DataMember]
         public string RouteFrom { get; set; }
@@ -25,7 +25,7 @@ namespace Bus_Service.Classes
         public string RouteTo { get; set; }
 
        
-        public virtual IEnumerable<Insert_ScheduleInfo> Insert_ScheduleInfo { get; set; }
+       // public virtual IEnumerable<Insert_ScheduleInfo> Insert_ScheduleInfo { get; set; }
 
 
 

@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Bus_Service.Classes
 {
-    [DataContract(IsReference = true)]
+    [DataContract()]
 
     [Table("tblScheduleInfo")]
     public class Insert_ScheduleInfo
@@ -17,18 +17,18 @@ namespace Bus_Service.Classes
         [DataMember]
         [Key]
 
-        public string ScheduleID { get; set; }
+        public int ScheduleID { get; set; }
 
         [DataMember]
          
-        public string Busid { get; set; }
+        public int Busid { get; set; }
 
         [ForeignKey("Busid")]
         public virtual Insert_BusInfo Insert_BusInfo { get; set; }
 
         [DataMember]
 
-        public string Routeid { get; set; }
+        public int Routeid { get; set; }
 
         [ForeignKey("Routeid")]
 
@@ -44,7 +44,7 @@ namespace Bus_Service.Classes
 
         public int RouteCost { get; set; }
 
-        public virtual IEnumerable<Insert_availseats> Insert_Availseats { get; set; }
+    //    public virtual IEnumerable<Insert_availseats> Insert_Availseats { get; set; }
 
 
     }
