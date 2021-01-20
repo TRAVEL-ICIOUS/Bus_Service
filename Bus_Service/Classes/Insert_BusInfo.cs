@@ -30,6 +30,7 @@ namespace Bus_Service.Classes
         public int BusOrgCapacity { get; set; }
 
         public virtual IEnumerable<Insert_ScheduleInfo> Insert_ScheduleInfo { get; set; }
+        //public virtual IEnumerable<Ticket> Ticket { get; set; }
 
 
 

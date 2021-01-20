@@ -165,6 +165,7 @@ namespace Bus_Service
 
         }
 
+
         public List<string> GetState(string Country)
         {
             
@@ -181,6 +182,8 @@ namespace Bus_Service
 
 
         }
+
+       
 
         public List<CustomerRegistration> Getmobileno()
         {
@@ -229,26 +232,24 @@ namespace Bus_Service
            
         }
 
-       //public string search(CustomerRegistration cr1)
-       // {
-       //     {
-       //      try
-       //         {
-       //             var E = (from  in cr1
+        
+        public string InsertTicketbooked(TicketBooking T)
+        {
+            try
+            {
+                ProjectDBCls P = new ProjectDBCls();
+                P.TicketBookings.Add(T);
+                P.SaveChanges();
+                //gfh
+                return "1 row inserted";
+            }
+            catch (DbUpdateException Ex)
+            {
+                SqlException sql = (SqlException)Ex.GetBaseException();//user friendly error include 
+                return sql.Message;
+            }
+        }
 
-       //                      where L == user && L.Password == pass
-
-       //                      select L).FirstOrDefault();
-       //             return E;
-       //         }
-       //        catch (DbUpdateException E)
-       //         {
-       //             SqlException ex = E.GetBaseException() as SqlException;
-       //         }
-
-       //         return null;
-       //     }
-       // }
 
         public int getcustomerId()
         {
@@ -266,28 +267,23 @@ namespace Bus_Service
             return Convert.ToInt32(year + month + rndNo);
         }
 
-        public int getticketId()
+
+        public List<string> GetFrom()
         {
-            //ADD BUS ID***********************************************
-            DateTime currentDate = DateTime.Now;
+            return P.Insert_RouteInfos.Select(x => x.RouteFrom).Distinct().ToList();
+            
+        }
 
-            string date = currentDate.Date.ToString();
-            if (Convert.ToInt32(date) < 10)
-            {
-                date = "0" + date;
-            }
 
-            string year = currentDate.Year.ToString("yy");
+        public List<string> GetTo(string From)
+        {
+            P.Configuration.ProxyCreationEnabled = false;
+            var S = from S1 in P.Insert_RouteInfos
+                    where S1.RouteFrom.Equals(From)
+                    select S1.RouteTo;
+            List<string> L = S.ToList();
+            return L;
 
-            string month = currentDate.Month.ToString();
-            if (Convert.ToInt32(month) < 10)
-            {
-                month = "0" + month;
-            }
-            Random rnd = new Random();
-            string rndNo = rnd.Next(1111, 9999).ToString();
-
-            return Convert.ToInt32(year + month + rndNo);
         }
 
         public List<int> getSecId()
@@ -298,6 +294,47 @@ namespace Bus_Service
             return s.ToList();
             
 
+        }
+
+         public   List<ExtractBookingDetails> GetExtractBookings(String RouteFrom, String RouteTo, int NOT)
+        {
+            SqlParameter Param1 = new SqlParameter("@RouteFrom", RouteFrom);
+            SqlParameter Param2 = new SqlParameter("@RouteTo", RouteTo);
+            SqlParameter Param3 = new SqlParameter("@NOT", NOT);
+
+            var res = P.Database.SqlQuery<ExtractBookingDetails>("dbo.sp_ExtractBD @RouteFrom,@RouteTo,@NOT", Param1, Param2, Param3).ToList();
+
+            List<ExtractBookingDetails> L = new List<ExtractBookingDetails>();
+            ExtractBookingDetails E = null;
+
+            foreach(var r in res)
+            {
+                E = new ExtractBookingDetails();
+                E.BusID = r.BusID;
+                E.BusName = r.BusName;
+                E.BusType = r.BusType;
+                E.DepartureTime = r.DepartureTime;
+                E.DoJ = r.DoJ;
+                E.TotalCost = r.TotalCost;
+                E.RouteID = r.RouteID;
+                E.ScheduleID = r.ScheduleID;
+                E.AvailableSeats = r.AvailableSeats;
+                L.Add(E);
+            }
+            return L;
+
+
+        }
+
+        public List<int> GetTicketId(int Cid)
+        {
+            ProjectDBCls P = new ProjectDBCls();
+
+            var S = from S1 in P.TicketBookings
+                    where S1.Customerid.Equals(Cid)
+                    select S1.TicketID;
+            List<int> L = S.ToList();
+            return L;
         }
     }
 }

@@ -4,6 +4,7 @@ namespace Bus_Service.Classes
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public partial class ProjectDBCls : DbContext
     {
@@ -23,11 +24,23 @@ namespace Bus_Service.Classes
 
         public DbSet<CS>CSs{ get; set; }
 
-        
+       
+
+
+        public DbSet<TicketBooking> TicketBookings{ get; set; }
+
         public DbSet<CustomerRegistration> CustomerRegistrations { get; set; }
+
+        public DbSet<ExtractBookingDetails> extractBookingDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
+
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Entity<ExtractBookingDetails>().MapToStoredProcedures();
+
         }
-    }
+}
 }

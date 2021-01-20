@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,25 +10,15 @@ using System.Web;
 namespace Bus_Service.Classes
 {
     [DataContract]
-    [Table("tblRouteInfo")]
-    public class Insert_RouteInfo
+    public class ExtractCancelDetails
     {
         [DataMember]
-        [Key]
 
-        public int RouteID { get; set; }
-
-        [DataMember]
-        public string RouteFrom { get; set; }
+        public int ScheduleID { get; set; }
 
         [DataMember]
 
-        public string RouteTo { get; set; }
-
-
-        public virtual IEnumerable<Insert_ScheduleInfo> Insert_ScheduleInfo { get; set; }
-        
-
+        public int NoOfTicketBooked { get; set; }
 
 
     }

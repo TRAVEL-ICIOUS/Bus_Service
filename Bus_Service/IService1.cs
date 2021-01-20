@@ -74,11 +74,24 @@ namespace Bus_Service
         [OperationContract]
         CustomerRegistration Userlogin(long Username, string Password);
 
+        [OperationContract]
+        string InsertTicketbooked(TicketBooking T);
+        //string InsertTicket(int sid, int seats, int custid,Ticket tt);
+
+        [OperationContract]
+        List<string> GetFrom();
+
+        [OperationContract]
+        List<int> GetTicketId(int Cid);
+
+        [OperationContract]
+        List<string> GetTo(string From);
 
         //string search(CustomerRegistration cr1);
 
-        // [OperationContract]
-        // List<CustomerRegistration> getcustomerId();
+        [OperationContract]
+        List<ExtractBookingDetails> GetExtractBookings(String RouteFrom, String RouteTo, int NOT);
+       
 
 
 

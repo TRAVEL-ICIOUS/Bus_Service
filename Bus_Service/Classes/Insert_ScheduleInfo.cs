@@ -44,8 +44,8 @@ namespace Bus_Service.Classes
 
         public int RouteCost { get; set; }
 
-    //    public virtual IEnumerable<Insert_availseats> Insert_Availseats { get; set; }
-
+         public virtual IEnumerable<Insert_availseats> Insert_Availseats { get; set; }
+      //  public virtual IEnumerable<Ticket> Ticket { get; set; }
 
     }
 }

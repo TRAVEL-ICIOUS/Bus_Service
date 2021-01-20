@@ -74,7 +74,7 @@ namespace Bus_Service.Classes
 
         public int Pincode { get; set; }
 
-
+        //public virtual IEnumerable<Ticket> Ticket { get; set; }
 
 
     }
