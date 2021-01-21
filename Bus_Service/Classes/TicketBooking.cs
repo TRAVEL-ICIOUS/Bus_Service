@@ -17,7 +17,7 @@ namespace Bus_Service.Classes
 
         [DataMember]
         [Key]
-
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TicketID { get; set; }
 
 

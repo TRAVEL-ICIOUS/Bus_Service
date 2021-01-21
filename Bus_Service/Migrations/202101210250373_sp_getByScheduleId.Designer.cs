@@ -7,13 +7,13 @@ namespace Bus_Service.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class sp_ExtractBD : IMigrationMetadata
+    public sealed partial class sp_getByScheduleId : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(sp_ExtractBD));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(sp_getByScheduleId));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101200613462_sp_ExtractBD"; }
+            get { return "202101210250373_sp_getByScheduleId"; }
         }
         
         string IMigrationMetadata.Source

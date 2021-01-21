@@ -15,7 +15,8 @@ namespace Bus_Service.Classes
         {
             [Key]
             [DataMember]
-            public int AID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int AID { get; set; }
             [DataMember]
 
 
@@ -26,10 +27,8 @@ namespace Bus_Service.Classes
             [DisplayName("Start Date")]
             [DataType(DataType.Date, ErrorMessage = "Date not valid.")]
             [DisplayFormat(DataFormatString = "{0:dd\\-mm\\-yyyy}", ApplyFormatInEditMode = true)]
-        //[DataType(DataType.Date)]
-
-             //[CustomDOJ]
-             public DateTime? DoJ { get; set; }
+            //[DataType(DataType.Date)]
+            public DateTime? DoJ { get; set; }
 
 
 

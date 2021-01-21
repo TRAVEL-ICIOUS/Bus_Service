@@ -83,6 +83,7 @@
     <Compile Include="Classes\CustomDOJ.cs" />
     <Compile Include="Classes\CustomerRegistration.cs" />
     <Compile Include="Classes\ExtractBookingDetails.cs" />
+    <Compile Include="Classes\ExtractById.cs" />
     <Compile Include="Classes\ExtractCancelDetails.cs" />
     <Compile Include="Classes\Insert_availseats.cs" />
     <Compile Include="Classes\Insert_BusInfo.cs" />
@@ -90,9 +91,13 @@
     <Compile Include="Classes\Insert_ScheduleInfo.cs" />
     <Compile Include="Classes\ProjectDBCls.cs" />
     <Compile Include="Classes\TicketBooking.cs" />
-    <Compile Include="Migrations\202101200613462_sp_ExtractBD.cs" />
-    <Compile Include="Migrations\202101200613462_sp_ExtractBD.designer.cs">
-      <DependentUpon>202101200613462_sp_ExtractBD.cs</DependentUpon>
+    <Compile Include="Migrations\202101201708560_sp_ExtractBD.cs" />
+    <Compile Include="Migrations\202101201708560_sp_ExtractBD.designer.cs">
+      <DependentUpon>202101201708560_sp_ExtractBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101210250373_sp_getByScheduleId.cs" />
+    <Compile Include="Migrations\202101210250373_sp_getByScheduleId.designer.cs">
+      <DependentUpon>202101210250373_sp_getByScheduleId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service1.svc.cs">
@@ -114,8 +119,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101200613462_sp_ExtractBD.resx">
-      <DependentUpon>202101200613462_sp_ExtractBD.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101201708560_sp_ExtractBD.resx">
+      <DependentUpon>202101201708560_sp_ExtractBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101210250373_sp_getByScheduleId.resx">
+      <DependentUpon>202101210250373_sp_getByScheduleId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

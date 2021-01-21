@@ -15,6 +15,11 @@ namespace Bus_Service
     {
         [OperationContract]
 
+        
+        ExtractById getExtractBySid(int sid);
+        [OperationContract]
+
+
         string InsertBusInfo(Insert_BusInfo B);
 
         [OperationContract]

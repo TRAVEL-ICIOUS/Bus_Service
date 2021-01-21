@@ -9,13 +9,13 @@ namespace Bus_Service.Classes
     public partial class ProjectDBCls : DbContext
     {
         public ProjectDBCls()
-            : base("name=ProjectDBCls")
+            : base("name=BUSDB")
         {
 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ProjectDBCls, Bus_Service.Migrations.Configuration>());
 
         }
-
+        public DbSet<ExtractById> extractByIds { get; set; }
         public DbSet<Insert_BusInfo> Insert_BusInfos { get; set; }
         public DbSet<Insert_RouteInfo> Insert_RouteInfos { get; set; }
         public DbSet<Insert_ScheduleInfo> Insert_ScheduleInfos { get; set; }

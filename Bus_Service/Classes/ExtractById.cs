@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,14 +9,17 @@ using System.Web;
 
 namespace Bus_Service.Classes
 {
-    [DataContract]
- [Table("tblBusInfo")]
-    public class Insert_BusInfo
+[DataContract]
+    public class ExtractById
     {
-        [DataMember]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int BusID { get; set; }
+        [Column(Order = 1)]
+        [DataMember]
+        public int ScheduleID { get; set; }
+
+        [DataMember]
+        public int BusId { get; set; }
 
         [DataMember]
 
@@ -27,12 +31,16 @@ namespace Bus_Service.Classes
 
         [DataMember]
 
-        public int BusOrgCapacity { get; set; }
+        public string RouteFrom { get; set; }
 
-        public virtual IEnumerable<Insert_ScheduleInfo> Insert_ScheduleInfo { get; set; }
-        //public virtual IEnumerable<Ticket> Ticket { get; set; }
+        [DataMember]
 
+        public string RouteTo { get; set; }
 
+        [DataMember]
+        public TimeSpan DepartureTime { get; set; }
+
+        
 
     }
 }

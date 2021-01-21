@@ -325,7 +325,10 @@ namespace Bus_Service
 
 
         }
-
+        //public ExtractBookingDetails GetExtractBookingsById(int sid)
+        //{
+        //    GetExtractBookings
+        //}
         public List<int> GetTicketId(int Cid)
         {
             ProjectDBCls P = new ProjectDBCls();
@@ -335,6 +338,30 @@ namespace Bus_Service
                     select S1.TicketID;
             List<int> L = S.ToList();
             return L;
+        }
+
+        public ExtractById getExtractBySid(int sid)
+        {
+            SqlParameter Param1 = new SqlParameter("@ScheduleID", sid);
+
+            var res = P.Database.SqlQuery<ExtractById>("dbo.sp_getByScheduleId @ScheduleID", Param1).FirstOrDefault();
+
+            
+            ExtractById E = null;
+
+            
+                E = new ExtractById();
+                E.BusName = res.BusName;
+                E.BusType = res.BusType;
+                E.DepartureTime = res.DepartureTime;
+                E.BusId = res.BusId;
+                E.RouteTo=res.RouteTo;
+                E.RouteFrom = res.RouteFrom;
+                E.ScheduleID = res.ScheduleID;
+
+                
+            return E;
+
         }
     }
 }
